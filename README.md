@@ -1,24 +1,48 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column               | Type   | Options     |
+| -------------------  | ------ | ----------- |
+| email                | string | null: false |
+| password             | string | null: false |
+|password_confirmation |string    |null: false|
+| nickname             | string   | null: false |
+|fullname              |string    | null:false|
+|birth_info            |string    |null:false|
 
-Things you may want to cover:
+|
 
-* Ruby version
+has_one:items
+has_many:address
 
-* System dependencies
+## items テーブル
 
-* Configuration
+| Column    | Type     | Options                      |
+| ------    | ------   | -----------------------------|
+|image      |          |                              |
+| name      | string   | null: false                  |
+|description|text      |null:false                    |
+| price     |text      |null:false                   |
+|user       |reference |null; false, foreign_key: true|
 
-* Database creation
+has_one:address
+belongs_to:user
 
-* Database initialization
+## addresses テーブル
 
-* How to run the test suite
+| Column      | Type       | Options                        |
+| ------      | ---------- | ------------------------------ |
+|card_info    | string     | null:false                   |
+|dead_line    | string    | null:false                    |
+|security_code|string    |null:false                     |
+|post_num|    |string    |null:false                      |
+|todoufukenn |string     |null:false                      |
+|sikuchousonn|string     |null:false                       |
+|banchi      |string     |null:false                       |
+|build_name  |string     |                                 |
+|phone_num   |string     |                                 |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
+belongs_to:user
+belongs_to:item
