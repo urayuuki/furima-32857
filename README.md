@@ -1,8 +1,8 @@
 ## users テーブル
 
 | Column                         | Type  | Options     |
-| -------------------           | ------ | ----------- |
-| email                          | string | null: false,unique: true |
+| -------------------             | ------ | ----------- |
+| email                           | string | null: false,unique: true |
 | encrypted_password              | string | null: false |
 | nickname                        | string   | null: false |
 | last_name                       |string    | null:false|
@@ -18,17 +18,17 @@ has_many:user_items
 
 ## items テーブル
 
-| Column        | Type     | Options                      |
-| ------        | ------   | -----------------------------|
-| name          | string   | null: false                  |
-|description    | text      |null:false                    |
-| price           | integer   |null:false                 |
-｜category_id      |  integer    |null:false                   |
-| condition_id    | integer     |null:false                   |
-| shipping_id   | integer    | null:false                   |
-| shipment_source_id| integer      |null:false           |
-| shipping_date_id  |  integer    |  null:false                          |
-| user        |reference |null; false, foreign_key: true|
+| Column           | Type     | Options                      |
+| ------           | ------   | -----------------------------|
+| name             | string   | null: false                  |
+|description       | text      |null:false                    |
+| price            | integer   |null:false                    |
+｜category_id       |  integer    |null:false                   |
+| condition_id      | integer     |null:false                   |
+| shipping_id      | integer    | null:false                   |
+| shipment_source_id| integer      |null:false                |
+| shipping_date_id  |  integer    |  null:false                 |
+| user               |references |null; false, foreign_key: true|
 
 
 
@@ -37,15 +37,16 @@ belongs_to:user
 
 ## address テーブル
 
-| Column      | Type       | Options                        |
-| ------      | ---------- | ------------------------------ |
-|prefecture   |string     |null:false                      |
-|city         |string     |null:false                       |
-|address      |string     |null:false                       |
-|building_name |string     |                   |
-|phone_num   |string       |null:false                       |
+| Column           | Type       | Options                        |
+| ------           | ---------- | ------------------------------ |
+|post_num          |string      |null:false                      |
+|shipment_source_id|integer     |null:false                      |
+|city              |string     |null:false                       |
+|address           |string     |null:false                       |
+|building_name     |string     |                                 |
+|phone_num         |string       |null:false                     |
 
-|user_items   | references |null:false,foreign_key: true
+|user_item         | references |null:false,foreign_key: true
 
 
 
