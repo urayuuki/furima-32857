@@ -14,6 +14,7 @@
 ### Association
 
 has_many:items
+has_many:user_items
 
 ## items テーブル
 
@@ -22,12 +23,12 @@ has_many:items
 | name          | string   | null: false                  |
 |description    | text      |null:false                    |
 | price           | integer   |null:false                 |
-｜category      |  integer    |null:false                   |
-| condition      | integer     |null:false                   |
-| shipping       | integer    | null:false                   |
-| shipment_source| integer      |null:false           |
-| shipping_date  |  integer    |  null:false                          |
-| user_id        |reference |null; false, foreign_key: true|
+｜category_id      |  integer    |null:false                   |
+| condition_id    | integer     |null:false                   |
+| shipping_id   | integer    | null:false                   |
+| shipment_source_id| integer      |null:false           |
+| shipping_date_id  |  integer    |  null:false                          |
+| user        |reference |null; false, foreign_key: true|
 
 
 
@@ -43,8 +44,8 @@ belongs_to:user
 |address      |string     |null:false                       |
 |building_name |string     |                   |
 |phone_num   |string       |null:false                       |
-| user_id    | references | null: false, foreign_key: true |
-|user_items_id   | references |null:false,foreign_key: true
+
+|user_items   | references |null:false,foreign_key: true
 
 
 
@@ -56,11 +57,12 @@ belongs_to:user_item
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| user_id   | references | null: false, foreign_key: true |
-| item_id| references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
 
 belongs_to:item
 belongs_to:user
+has_one:address
