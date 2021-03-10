@@ -7,17 +7,23 @@ class User < ApplicationRecord
   has_many :items
 
   validates :nickname, :email, :birth_info, presence: true
-  validates :last_name, presence: true, presence: { message: 'last name cant be black' }
-  validates :first_name, presence: true, presence: { message: 'first name cant be black' }
-  validates :last_name_kana, presence: true, presence: { message: 'last name kana cant be black' }
-  validates :first_name_kana, presence: true, presence: { message: 'first name kana cant be black' }
+
+  with_options presence: true do
+    validates :last_name, presence: { message: 'last name cant be black' }
+    validates :first_name, presence: { message: 'first name cant be black' }
+    validates :last_name_kana, presence: { message: 'last name kana cant be black' }
+    validates :first_name_kana, presence: { message: 'first name kana cant be black' }
+  end
+
   validates :email, uniqueness: true
 
-  validates :encrypted_password, :password, :password_confirmation, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/ }
+  validates :password, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/ }
 
   validates :first_name,
             :last_name,
-            :first_name_kana,
-            :last_name_kana,
-            format: { with: /[^ -~｡-ﾟ]+/, message: 'Full-width characters' }
+            format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'Full-width characters' }
+
+  validates  :first_name_kana,
+             :last_name_kana,
+             format: { with: /\A[ァ-ヶー－]+\z/, message: 'Full-width characters' }
 end
