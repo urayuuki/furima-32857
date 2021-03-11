@@ -44,9 +44,8 @@ belongs_to:user
 |city              |string     |null:false                       |
 |address           |string     |null:false                       |
 |building_name     |string     |                                 |
-|phone_num         |string       |null:false                     |
-
-|user_item         | references |null:false,foreign_key: true
+|phone_num         |string     |null:false                     |
+|user_item         | references |null:false,foreign_key: true |
 
 
 
