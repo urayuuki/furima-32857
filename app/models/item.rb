@@ -1,11 +1,11 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  belongs_to :category_id
-  belongs_to :condition_id
-  belongs_to :shipping_id
-  belongs_to :shipment_source_id
-  belongs_to :shipping_date_id
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :shipping
+  belongs_to :shipment_source
+  belongs_to :shipping_date
 
   
   
@@ -14,7 +14,20 @@ belongs_to :user
 has_one_attached :image
 
 
+with_options presence: true do
+  validates :name 
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+  validates :category_id
+  validates :condition_id
+  validates :shipping_id
+  validates :shipment_source_id
+  validates :shipping_date_id
+  validates :description
+  validates :image
 
+
+  end
+  
 
 
 
