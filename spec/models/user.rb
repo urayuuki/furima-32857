@@ -1,6 +1,4 @@
 FactoryBot.define do
-  # password = Faker::Internet.password(min_length: 7, max_length: 100)
-
   factory :user do
     nickname              { 'yamada' }
     email                 { Faker::Internet.email }
