@@ -7,9 +7,6 @@ class User < ApplicationRecord
   has_many :items
   has_many :user_items
 
-
-  
-
   validates :nickname, :email, :birth_info, presence: true
 
   with_options presence: true do
