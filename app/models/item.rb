@@ -28,7 +28,4 @@ class Item < ApplicationRecord
     validates :shipping_date_id
   end
 
-  def was_attached?
-    image.attached?
-  end
 end

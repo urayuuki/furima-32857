@@ -4,8 +4,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-
- 
       t.string :name,              null:false
       t.text :description,         null:false
       t.integer :price,           null:false
@@ -15,10 +13,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :shipment_source_id,  null:false
       t.integer :shipping_date_id,  null:false
       t.references :user,         null:false,foreign_key:true
-
-
-
-      
     end
   end
 end
