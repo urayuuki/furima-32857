@@ -27,5 +27,4 @@ class Item < ApplicationRecord
     validates :shipment_source_id
     validates :shipping_date_id
   end
-
 end
