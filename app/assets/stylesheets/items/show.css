@@ -146,6 +146,8 @@
   background-color: #fff;
   margin: 5vh 0;
   text-align: center;
+  padding: 30px;
+  margin: auto;
 }
 
 .comment-text {
@@ -188,7 +190,7 @@
   display: flex;
   justify-content: space-between;
   width: 50vw;
-
+  margin: auto;
 }
 
 .change-item-btn {
@@ -204,4 +206,5 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+  padding: 0 0 0 620px;
 }
