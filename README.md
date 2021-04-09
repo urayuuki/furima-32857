@@ -1,4 +1,4 @@
-## users テーブル
+1## users テーブル
 
 | Column                         | Type  | Options     |
 | -------------------             | ------ | ----------- |
@@ -14,7 +14,7 @@
 ### Association
 
 has_many:items
-has_many:user_items
+has_many:orders
 
 ## items テーブル
 
@@ -32,7 +32,7 @@ has_many:user_items
 
 
 
-has_one:user_item
+has_one:order
 belongs_to:user
 
 ## addresses テーブル
@@ -43,17 +43,17 @@ belongs_to:user
 |shipment_source_id|integer     |null:false                      |
 |city              |string     |null:false                       |
 |address           |string     |null:false                       |
-|building_name     |string     |                                 |
+|build_name     |string     |                                 |
 |phone_num         |string     |null:false                     |
-|user_item         | references |null:false,foreign_key: true |
+|order_id      | references |null:false,foreign_key: true |
 
 
 
-belongs_to:user_item
+belongs_to:order
 
 
 
-## user_items テーブル
+## orders テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
