@@ -103,6 +103,7 @@
         <h3 class='feature-list-text'>
           売上金は即日振込みに対応
         </h3>
+
         <p class='feature-list-description'>
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします。
         </p>
@@ -133,11 +134,15 @@
         <div class='item-img-content'>
           <%= link_to image_tag(item.image, class: "item-img" ), item_path(item.id)%>
 
-          <%# 商品が売れていればsold outを表示しましょう（商品購入機能実装後に行う条件分岐使用） %>
-          <%# <div class='sold-out'> %>
-            <%# <span>Sold Out!!</span> %>
-          <%# </div> %>
-          <%# //商品が売れていればsold outを表示しましょう %>
+
+          <% if item.order.present? %>
+          <div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+
+
+          <%end %>
+
 
          </div>
          <div class='item-info'>
