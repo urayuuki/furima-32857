@@ -32,7 +32,7 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'shipment_source_idがない場合は登録できないこと' do
-        @order_address.shipment_source_id = nil
+        @order_address.shipment_source_id = 0
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Shipment source can't be blank")
       end
