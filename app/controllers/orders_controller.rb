@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
 
       render action: :index
     end
-
   end
 
   private
